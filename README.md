@@ -1,61 +1,108 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📦 Bantuan Sosial Fahrudin
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Aplikasi Web Pendataan & Penilaian Kelayakan Penerima Bantuan Sosial**  
+Dibuat dengan Laravel 12, Bootstrap 5.3.3, dan Font Awesome 6.5  
+🎓 Proyek Akademik oleh Fahrudin (STI202202909)
 
-## About Laravel
+![Tampilan Aplikasi](public/screenshots/dashboard.png)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Aplikasi ini membantu mengelola data penerima bantuan sosial dengan sistem penilaian kelayakan otomatis. Pengguna dapat menambahkan data penerima, melakukan penilaian berdasarkan kriteria sosial ekonomi, dan memfilter data secara dinamis.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🚀 Fitur Unggulan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- 🔁 **Manajemen Data Penerima**
+  - Tambah, edit, lihat, hapus data dengan validasi otomatis.
+  - Validasi NIK unik (16 digit), tanggal lahir, dan data penting lainnya.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- 🧠 **Sistem Penilaian Kelayakan Otomatis**
+  - Berdasarkan pendapatan, jumlah tanggungan, dan kondisi rumah:
+    - Pendapatan: ≤1 juta (40 poin), 1–2 juta (20 poin), >2 juta (0 poin)
+    - Tanggungan: ≥5 orang (30 poin), 3–4 orang (15 poin), <3 (0 poin)
+    - Kondisi Rumah: Tidak Layak (30), Kurang Layak (15), Layak (0)
+  - Output kategori: `Sangat Layak`, `Layak`, `Kurang Layak`, `Tidak Layak`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- 🔎 **Filter & Pencarian Dinamis**
+  - Berdasarkan skor kelayakan, pendapatan, jumlah tanggungan, kondisi rumah
+  - Termasuk pagination agar efisien di data besar
 
-## Laravel Sponsors
+- 📱 **Desain Responsif & Modern**
+  - Bootstrap 5.3.3 dengan nuansa warna merah `#b30000`
+  - UX ditingkatkan dengan gradien form dan ikon di dalam input
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- 🧹 **Cascade Delete**
+  - Menghapus penerima otomatis menghapus data penilaiannya
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🛠️ Teknologi
 
-## Contributing
+| Teknologi       | Versi     | Keterangan                            |
+|----------------|-----------|----------------------------------------|
+| Laravel        | 12.x      | Backend framework                      |
+| MySQL          | -         | Penyimpanan data relasional            |
+| Bootstrap      | 5.3.3     | Desain antarmuka responsif             |
+| Font Awesome   | 6.5.0     | Ikon visual                            |
+| PHP            | 8.1+      | Bahasa pemrograman backend             |
+| Composer/NPM   | -         | Manajemen dependensi                   |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 📂 Struktur Proyek
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+| Path                                      | Deskripsi                                      |
+|-------------------------------------------|------------------------------------------------|
+| `app/Http/Controllers/`                  | Folder controller utama aplikasi              |
+| ├── `PenerimaBantuanController.php`      | Mengelola data penerima bantuan               |
+| └── `AssessmentPenerimaController.php`   | Mengelola proses penilaian kelayakan          |
+| `app/Models/`                            | Model Eloquent untuk database                 |
+| ├── `PenerimaBantuan.php`                | Model penerima bantuan                        |
+| └── `AssessmentPenerima.php`             | Model penilaian kelayakan                     |
+| `database/migrations/`                   | File migrasi untuk struktur tabel             |
+| ├── `create_penerima_bantuan_table.php`  | Migrasi tabel `penerima_bantuan`              |
+| └── `create_assessment_penerima_table.php`| Migrasi tabel `assessment_penerima`           |
+| `resources/views/`                       | Template Blade untuk tampilan pengguna        |
+| ├── `penerima/`                          | Halaman untuk kelola data penerima            |
+| └── `assessment/`                        | Halaman untuk form penilaian                  |
+| `public/screenshots/`                    | Folder gambar untuk README                    |
+| ├── `dashboard.png`                      | Cuplikan antarmuka aplikasi                   |
+| └── `erd.png`                            | Diagram ERD aplikasi                          |
+| `routes/web.php`                         | Rute web untuk aplikasi Laravel               |
+| `.env.example`                           | Contoh file environment                       |
+| `README.md`                              | Dokumentasi proyek                            |
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📊 Struktur Database
 
-## License
+### Tabel `penerima_bantuan`
+- `id` (primary key)
+- `nik` (unik, 16 karakter)
+- `nama`
+- `tanggal_lahir`
+- `jenis_kelamin` (`Laki-laki`, `Perempuan`)
+- `alamat`
+- `status_bantuan` (`Aktif`, `Tidak Aktif`)
+- `created_at`, `updated_at`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Tabel `assessment_penerima`
+- `id` (primary key)
+- `penerima_id` (foreign key ke `penerima_bantuan`, cascade on delete)
+- `pendapatan_bulanan`
+- `jumlah_tanggungan`
+- `kondisi_rumah` (`Layak Huni`, `Kurang Layak`, `Tidak Layak`)
+- `skor_kelayakan` (0–100)
+- `kategori_kelayakan` (`Sangat Layak`, `Layak`, `Kurang Layak`, `Tidak Layak`)
+- `catatan` (nullable)
+- `tanggal_penilaian`, `created_at`, `updated_at`
+
+---
+
+![Diagram ERD](public/screenshots/erd.png)
+
+---
+
+**Proyek ini dibangun sebagai solusi praktis untuk mengelola bantuan sosial secara digital, akurat, dan transparan. Terima kasih telah mengunjungi repositori ini!**
