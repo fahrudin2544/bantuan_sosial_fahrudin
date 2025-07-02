@@ -4,7 +4,7 @@
 Dibuat dengan Laravel 12, Bootstrap 5.3.3, dan Font Awesome 6.5  
 🎓 Proyek Akademik oleh Fahrudin (STI202202909)
 
-![Tampilan Aplikasi](public/screenshots/dashboard.png)
+![<img src="public/screenshots/dashboard.png" width="400"/>](public/screenshots/dashboard.png)
 
 ---
 
