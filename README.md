@@ -105,7 +105,7 @@ Aplikasi ini membantu mengelola data penerima bantuan sosial dengan sistem penil
 ---
 
 <p align="center">
-  <img src="public/screenshots/erd.png" alt="ERD Diagram" width="500">
+  <img src="public/erd.png" alt="ERD Diagram" width="600">
 </p>
 
 ---
