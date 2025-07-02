@@ -4,50 +4,53 @@
 Dibuat dengan Laravel 12, Bootstrap 5.3.3, dan Font Awesome 6.5  
 🎓 Proyek Akademik oleh Fahrudin (STI202202909)
 
-[<img src="public/dashboard.png" width="400"/>](public/dashboard.png)
+<p align="center">
+  <img src="public/dashboard.png" alt="Dashboard" width="600">
+</p>
 
 ---
 
-Aplikasi ini membantu mengelola data penerima bantuan sosial dengan sistem penilaian kelayakan otomatis. Pengguna dapat menambahkan data penerima, melakukan penilaian berdasarkan kriteria sosial ekonomi, dan memfilter data secara dinamis.
+Aplikasi ini membantu mengelola data penerima bantuan sosial dengan sistem penilaian kelayakan otomatis. Pengguna dapat menambahkan data penerima, melakukan penilaian berdasarkan kriteria sosial ekonomi, serta memfilter dan mengelompokkan data secara dinamis dan interaktif.
 
 ---
 
 ## 🚀 Fitur Unggulan
 
 - 🔁 **Manajemen Data Penerima**
-  - Tambah, edit, lihat, hapus data dengan validasi otomatis.
-  - Validasi NIK unik (16 digit), tanggal lahir, dan data penting lainnya.
+  - Tambah, edit, lihat, dan hapus data dengan validasi otomatis
+  - Validasi NIK unik (16 digit), tanggal lahir, dan informasi penting lainnya
 
-- 🧠 **Sistem Penilaian Kelayakan Otomatis**
-  - Berdasarkan pendapatan, jumlah tanggungan, dan kondisi rumah:
-    - Pendapatan: ≤1 juta (40 poin), 1–2 juta (20 poin), >2 juta (0 poin)
-    - Tanggungan: ≥5 orang (30 poin), 3–4 orang (15 poin), <3 (0 poin)
-    - Kondisi Rumah: Tidak Layak (30), Kurang Layak (15), Layak (0)
-  - Output kategori: `Sangat Layak`, `Layak`, `Kurang Layak`, `Tidak Layak`
+- 🧠 **Penilaian Kelayakan Otomatis**
+  - Berdasarkan pendapatan, jumlah tanggungan, dan kondisi rumah
+  - Skor & kategori:
+    - Pendapatan ≤1 juta (40 poin), 1–2 juta (20), >2 juta (0)
+    - Tanggungan ≥5 (30), 3–4 (15), <3 (0)
+    - Kondisi rumah: Tidak Layak (30), Kurang Layak (15), Layak (0)
+    - Total skor menentukan kategori: `Sangat Layak`, `Layak`, `Kurang Layak`, `Tidak Layak`
 
 - 🔎 **Filter & Pencarian Dinamis**
-  - Berdasarkan skor kelayakan, pendapatan, jumlah tanggungan, kondisi rumah
-  - Termasuk pagination agar efisien di data besar
+  - Filter berdasarkan skor, pendapatan, tanggungan, kondisi rumah
+  - Pagination otomatis untuk data dalam jumlah besar
 
-- 📱 **Desain Responsif & Modern**
-  - Bootstrap 5.3.3 dengan nuansa warna merah `#b30000`
-  - UX ditingkatkan dengan gradien form dan ikon di dalam input
+- 🎨 **Desain Modern & Responsif**
+  - Warna utama merah `#b30000` dengan UI Bootstrap 5.3.3
+  - UX ditingkatkan dengan gradien form & ikon input dari Font Awesome 6.5.0
 
 - 🧹 **Cascade Delete**
-  - Menghapus penerima otomatis menghapus data penilaiannya
+  - Menghapus data penerima otomatis menghapus seluruh data penilaiannya
 
 ---
 
-## 🛠️ Teknologi
+## 🛠️ Teknologi yang Digunakan
 
-| Teknologi       | Versi     | Keterangan                            |
-|----------------|-----------|----------------------------------------|
-| Laravel        | 12.x      | Backend framework                      |
-| MySQL          | -         | Penyimpanan data relasional            |
-| Bootstrap      | 5.3.3     | Desain antarmuka responsif             |
-| Font Awesome   | 6.5.0     | Ikon visual                            |
-| PHP            | 8.1+      | Bahasa pemrograman backend             |
-| Composer/NPM   | -         | Manajemen dependensi                   |
+| Teknologi     | Versi     | Keterangan                           |
+|---------------|-----------|--------------------------------------|
+| Laravel       | 12.x      | Backend framework berbasis PHP       |
+| MySQL         | -         | Database relasional                  |
+| Bootstrap     | 5.3.3     | Desain UI responsif                  |
+| Font Awesome  | 6.5.0     | Ikon visual                          |
+| PHP           | 8.1+      | Bahasa pemrograman backend           |
+| Composer/NPM  | -         | Manajer dependensi                   |
 
 ---
 
@@ -67,42 +70,44 @@ Aplikasi ini membantu mengelola data penerima bantuan sosial dengan sistem penil
 | `resources/views/`                       | Template Blade untuk tampilan pengguna        |
 | ├── `penerima/`                          | Halaman untuk kelola data penerima            |
 | └── `assessment/`                        | Halaman untuk form penilaian                  |
-| `public/screenshots/`                    | Folder gambar untuk README                    |
-| ├── `dashboard.png`                      | Cuplikan antarmuka aplikasi                   |
-| └── `erd.png`                            | Diagram ERD aplikasi                          |
-| `routes/web.php`                         | Rute web untuk aplikasi Laravel               |
-| `.env.example`                           | Contoh file environment                       |
-| `README.md`                              | Dokumentasi proyek                            |
+| `public/screenshots/`                    | Folder gambar untuk dokumentasi               |
+| ├── `dashboard.png`                      | Tampilan antarmuka aplikasi                   |
+| └── `erd.png`                            | Diagram ERD proyek                            |
+| `routes/web.php`                         | Routing utama Laravel                         |
+| `.env.example`                           | Template file konfigurasi environment         |
+| `README.md`                              | Dokumentasi proyek ini                        |
 
 ---
 
 ## 📊 Struktur Database
 
-### Tabel `penerima_bantuan`
-- `id` (primary key)
-- `nik` (unik, 16 karakter)
+### 🔹 Tabel `penerima_bantuan`
+- `id` – Primary Key
+- `nik` – Unik, 16 digit
 - `nama`
 - `tanggal_lahir`
-- `jenis_kelamin` (`Laki-laki`, `Perempuan`)
+- `jenis_kelamin` – Enum (`Laki-laki`, `Perempuan`)
 - `alamat`
-- `status_bantuan` (`Aktif`, `Tidak Aktif`)
+- `status_bantuan` – Enum (`Aktif`, `Tidak Aktif`)
 - `created_at`, `updated_at`
 
-### Tabel `assessment_penerima`
-- `id` (primary key)
-- `penerima_id` (foreign key ke `penerima_bantuan`, cascade on delete)
+### 🔹 Tabel `assessment_penerima`
+- `id` – Primary Key
+- `penerima_id` – Foreign Key (cascade on delete)
 - `pendapatan_bulanan`
 - `jumlah_tanggungan`
-- `kondisi_rumah` (`Layak Huni`, `Kurang Layak`, `Tidak Layak`)
-- `skor_kelayakan` (0–100)
-- `kategori_kelayakan` (`Sangat Layak`, `Layak`, `Kurang Layak`, `Tidak Layak`)
-- `catatan` (nullable)
+- `kondisi_rumah` – Enum
+- `skor_kelayakan` – Integer 0–100
+- `kategori_kelayakan` – Enum
+- `catatan` – Optional
 - `tanggal_penilaian`, `created_at`, `updated_at`
 
 ---
 
-![Diagram ERD](public/screenshots/erd.png)
+<p align="center">
+  <img src="public/screenshots/erd.png" alt="ERD Diagram" width="500">
+</p>
 
 ---
 
-**Proyek ini dibangun sebagai solusi praktis untuk mengelola bantuan sosial secara digital, akurat, dan transparan. Terima kasih telah mengunjungi repositori ini!**
+**Proyek ini dibangun sebagai solusi digital yang praktis, terstruktur, dan transparan untuk pendataan serta penilaian bantuan sosial. Terima kasih telah menjelajahi repositori ini!**
